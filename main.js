@@ -15,6 +15,15 @@ const randomFunc = {
   symbol: getRandomSymbol
 };
 
+clipboardEl.addEventListener('click', ()=>{
+    const textArea = document.createElement('textarea');
+    textArea.value = resultEl.innerText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+})
+
 generateEl.addEventListener("click", () => {
   const length = +lengthEl.value;
   const hasLower = lowercaseEl.checked;
